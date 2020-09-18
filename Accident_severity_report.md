@@ -95,23 +95,66 @@ Features like <b>SEGLANEKEY, CROSSWALKKEY, HITPARKEDCAR </b> should be examined,
 After all these processing, I have considered 19 attributes for the further <b>Exploratory Data Analysis </b> 
 Below are some plots about some that will give some insights about the car accidents that occured over the 16 years in Seattle city.
 
-<img src="Plots/weather.png" width="450"/> <img src="Plots/road.png" width="450"/>
+<img src="Plots/weather.png" width="450"/> &ensp;&ensp;&ensp; <img src="Plots/road.png" width="450"/>
 Above chart gives us a count of incidents occured while the weather condition, we can see that <b>95549</b> incident ocurred when it was <b>clear</b> which is the highest reported count, while the lowest reported count is <b>7</b> incidents in 16 years when it was <b>partly cloudy</b>
 
 Above chart gives us a count of incidents occured for the road condition, we can see that <b>106896</b> incident ocurred when it was <b>dry</b> which is the highest reported count, while the lowest reported count is <b>21</b> incidents in 16 years when <b>oil</b> was spilled on the road
 
-<img src="Plots/light.png" width="450"/> <img src="Plots/colltype.png" width="450"/>
+<img src="Plots/light.png" width="450"/> &ensp;&ensp;&ensp; <img src="Plots/colltype.png" width="450"/>
 Above chart gives us a count of incidents occured for different light condition, we can see that <b>99933</b> incident ocurred when it was broad <b>daylight</b> which is the highest reported count, while the lowest count is <b>14</b> incidents in 16 years when it was <b>dark</b>
 
 Above chart gives us a count of incidents occured for all types of collisions, we can see that collions with <b>angles, rear- ended parked car </b>were the types with highest number of collisions, while a <b>head-on collision</b> is with lowest count
 
+<img src="Plots/junction.png" width="450"/> &ensp;&ensp;&ensp; <img src="Plots/fatality.png" width="450"/>
+Above chart gives us a count of incidents occured at the different junction types, we can see that <b>63019</b> incident ocurred <b>Mid-Block</b> which is the highest reported count, while incidents at <b>Intersections</b> are <b>57770</b> and only <b>112</b> incidents occured at a <b>Ramp Junction</b>
+
+Above bar plot gives a count of the number of Fatalities across all the collision types. As observed, Pedestrian has the highest count. While Right Turn, Parked car has the lowest number of Fatalities 
+
+<img src="Plots/speed.png" width="300"/> &ensp;&ensp; <img src="Plots/drgalc.png" width="300"/> &ensp;&ensp; <img src="Plots/drgalc.png" width="300"/>
+From 2004 to 2020, <b>5550</b> incidents occured because of <b>speeding</b><br>
+From 2004 to 2020, <b>6614</b> incidents occured because of the driver was <b>under the influence of drugs or alcohol</b><br>
+From 2004 to 2020, <b>25421<b> incidents occured because of the driver was <b>not paying attention on the road</b>
+
+<img src="Plots/corrplot.png" width="600"/>
+
+Above is the correlation plot of all the numerical variables in this dataset<br>
+
+Person count and Vehicle have a positive yet moderate correlation of 0.33<br>
+Person count and Injuries have a positive yet moderate correlation of 0.27<br>
+Pedestrian count and Pedcycle count are negatively correlated to vehicle count of -0.41 and -0.39<br>
+X and Y coordinates have negative correlation with each other<br>
+Injuries and Serious Injuries have a weak yet positive correlation of 0.29<br>
+Serious Injuries and Fatalities have a weak yet positive correlation of 0.21<br>
+All other variables are very weakly correlated
+Thus, we need to normalize the data for further analysis.
+
+## Modelling
+
+For this project is a multi-class classification problem, I have used 3 popular classification machine Learning algorithms.<br>
+<b>1. Decision Tree Classifier<br>
+2. Random Forest Classifier<br>
+3. Logitical Regression</b>
+
+### Decision Tree
+Decision Treemakes decision with tree-like model. It splits the sample into two or more homogenous sets (leaves) based on the most significant differentiators in the input variables. To choose a differentiator (predictor), the algorithm considers all features and does a binary split on them (for categorical data, split by category; for continuous, pick a cut-off threshold). It will then choose the one with the least cost (i.e. highest accuracy), and repeats recursively, until it successfully splits the data in all leaves (or reaches the maximum depth).
+
+Information gain for a decision tree classifier can be calculated either using the Gini Index measure or the Entropy measure, whichever gives a greater gain. A hyper parameter Decision Tree Classifier was used to decide which tree to use, DTC using entropy had greater information gain; hence it was used for this classification problem
 
 
 
+### Random Forest Classifier
+Random Forest Classifier is an ensemble (algorithms which combines more than one algorithms of same or different kind for classifying objects) tree-based learning algorithm. RFC is a set of decision trees from randomly selected subset of training set. It aggregates the votes from different decision trees to decide the final class of the test object. Used for both classification and regression.
+
+Similar to DTC, RFT requires an input that specifies a measure that is to be used for classification, along with that a value for the number of estimators (number of decision trees) is required. A hyper parameter RFT was used to determine the best choices for the above mentioned parameters. RFT with 75 DT’s using entropy as the measure gave the best accuracy when trained and tested on pre-processed accident severity dataset.
 
 
 
+### Logistic Regression
+Logistic Regression is a classifier that estimates discrete values (binary values like 0/1, yes/no, true/false) based on a given set of an independent variables. It basically predicts the probability of occurrence of an event by fitting data to a logistic function. Hence it is also known as logistic regression. The values obtained would always lie within 0 and 1 since it predicts the probability.
 
+The chosen dataset has more than two target categories in terms of the accident severity code assigned, one-vs-one (OvO) strategy is employed.
+
+<img src="Plots/DTC.png" width="300"/> &ensp;&ensp; <img src="Plots/RFC.png" width="300"/> &ensp;&ensp; <img src="Plots/LR.png" width="300"/>
 
 
 
