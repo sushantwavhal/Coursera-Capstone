@@ -156,7 +156,23 @@ The chosen dataset has more than two target categories in terms of the accident 
 
 <img src="Plots/DTC.png" width="300"/> &ensp;&ensp; <img src="Plots/RFC.png" width="300"/> &ensp;&ensp; <img src="Plots/LR.png" width="300"/>
 
+## Results
+The accuracies of all models used was 100% which means we can accurately predict the severity of an accident. A bar plot is plotted below with the bars representing the accuracy of each model.
 
+<img src="Plots/result.png" width="450"/>
+
+## Discussions
+
+From this Dataset it is observed that, most of the Fatalities have a collision type - Pedestrian. Evidently, such incidents are a result of poor road signage or malfunctioning traffic signals that mislead the pedestrians to walk into the way of a moving vehicle. 
+Another observation involving only 5 vehicles yet the injuries count was as high as 81. This incident was a mass event. 
+In year 2013 the mayour of Seattle had passed a press release that the SDOT will work to reduce traffic death by 2030. Looking at the graph of yearly incident the number has been substantially decreased.
+
+## Conclusion
+
+Much of the data analyzed had revealed some important information about car accidents. Concerning the riskier ones which involve personal injuries, the focus has to be made in some important factors: intersections, rear end collisions, pedestrian and cycles. Left turns are also risky maneuvers which should also be avoided if the road users want to be safe.
+Extremely dangerous weather and road conditions do not produce a quite significant accident rate, such as snow and ice. However ,caution have to be taken with rainy weather and wet roads, since after clear days and dry roads, these are the following conditions in order of importance.
+
+Finally, the results of the machine learning algorithms using 19 predictors throws accurate results. This model can be used to classify the accident severity
 
 
 
