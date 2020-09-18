@@ -91,11 +91,19 @@ Feature <b>PEDROWNOTGRNT</b> has 95% null values and considering it for model bu
 
 Features like <b>SEGLANEKEY, CROSSWALKKEY, HITPARKEDCAR </b> should be examined, if they aren't correlated to the target variable then they should be excluded, it can be conceived as noise.
 
+## Exploratory Data Analysis
 After all these processing, I have considered 19 attributes for the further <b>Exploratory Data Analysis </b> 
-
+Below are some plots about some that will give some insights about the car accidents that occured over the 16 years in Seattle city.
 
 <img src="Plots/weather.png" width="450"/> <img src="Plots/road.png" width="450"/>
+Above chart gives us a count of incidents occured while the weather condition, we can see that <b>95549</b> incident ocurred when it was <b>clear</b> which is the highest reported count, while the lowest reported count is <b>7</b> incidents in 16 years when it was <b>partly cloudy</b>
 
+Above chart gives us a count of incidents occured for the road condition, we can see that <b>106896</b> incident ocurred when it was <b>dry</b> which is the highest reported count, while the lowest reported count is <b>21</b> incidents in 16 years when <b>oil</b> was spilled on the road
+
+<img src="Plots/light.png" width="450"/> <img src="Plots/colltype.png" width="450"/>
+Above chart gives us a count of incidents occured for different light condition, we can see that <b>99933</b> incident ocurred when it was broad <b>daylight</b> which is the highest reported count, while the lowest count is <b>14</b> incidents in 16 years when it was <b>dark</b>
+
+Above chart gives us a count of incidents occured for all types of collisions, we can see that collions with <b>angles, rear- ended parked car </b>were the types with highest number of collisions, while a <b>head-on collision</b> is with lowest count
 
 
 
