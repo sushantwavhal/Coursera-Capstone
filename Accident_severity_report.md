@@ -64,3 +64,70 @@ Following is a table of all the attributes along with their data types, variable
 
 <H4> As observed in the meta-data the severity code has 4 classes. Thus, this is a multi-class regression problem.<br>
 I intend to build a machine learning model to predict the severity and classify it into the multi-class severity codes for public undertanding </H4>
+
+## Methodology
+
+For this project, I have used Github repository to commit changes and updation of my code and running Jupyter Notebook to preprocess data and build Machine Learning models. I have used Python for coding and its popular packages such as Pandas, NumPy and Sklearn. Matplotlib, pyplot, seaborn for visulizations. Standard scaler for data normaliztion, Classification reports as an evaluation metric. 
+
+### Data Pre-processing
+The collisions dataset has been sourced from the <b>Seattle Open GeoData Portal</b> and is updated weekly, thus a several unique identifiers and spatial features are present in the dataset which will be irrelevant in further statistical analysis and model building.<br>  
+
+Features like <b>OBJECTID, INCKEY, COLDETKEY, INTKEY and REPORTNO.</b> are the unique identifiers<br>
+
+Features like <b>EXCEPTRSNCODE, EXCEPTRSNDESC and LOCATION</b> won't be contributing to our dataset.<br> 
+The LOCATION data will help us in populating the maps and getting the count in a particular area but the lattitudes and logitudes and already in place to serve that purpose.<br>
+
+Features like <b>INCDATE - Incident Date and INCDTTM - Incident Timestamp </b>, The timestamp column doesn't have consistent values. Most values do not contain the time. Let's maintain the incident date from INCDATE column<br>
+
+Features like <b>SDOT_COLCODE and SDOT_COLDESC</b> are redundant, <b>ST_COLCODE, ST_COLDESC, SDOT_COLNUM </b> are the repeated features which shouldn't be considered in further analysis <br>
+
+Feature like <b>COLLISIONTYPE</b> has some missing values, those can be filled by mapping the SDOT_COLDESC values, SDOT_COLDESC involves the collision description and can be used alongwith the SDOT_COLCODE to input null values.<br>
+
+Features like <b>JUNCTIONTYPE, WEATHER, ROADCOND, LIGHTCOND</b> contain null values, it would be best to drop these rows.<br>
+
+Features like <b>INATTENTIONIND, UNDERINFL, SPEEDING</b> are variables with binary values and has values input for only one class. Thus, we can induce the either value to account for all the blank cells. <br>
+
+Feature <b>PEDROWNOTGRNT</b> has 95% null values and considering it for model building would create bias, thus its safe to exclude it.
+
+Features like <b>SEGLANEKEY, CROSSWALKKEY, HITPARKEDCAR </b> should be examined, if they aren't correlated to the target variable then they should be excluded, it can be conceived as noise.
+
+After all these processing, I have considered 19 attributes for the further <b>Exploratory Data Analysis </b> 
+
+
+<img src="Plots/weather.png" width="450"/> <img src="Plots/road.png" width="450"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
